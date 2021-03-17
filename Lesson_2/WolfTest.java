@@ -4,18 +4,18 @@ public class WolfTest {
         Wolf wolf = new Wolf();
 
         // присваиваем ему значения
-        wolf.sex = "Male";
-        wolf.name = "Snow";
-        wolf.weight = 15.5;
-        wolf.age = 3;
-        wolf.color = "White";
+        wolf.setSex("Male");
+        wolf.setName("Snow");
+        wolf.setWeight(15.5);
+        wolf.setAge(3);
+        wolf.setColor("White");
 
         // выводим эти значения на экран
-        System.out.println(wolf.sex);
-        System.out.println(wolf.name);
-        System.out.println(wolf.weight);
-        System.out.println(wolf.age);
-        System.out.println(wolf.color);
+        System.out.println(wolf.getSex());
+        System.out.println(wolf.getName());
+        System.out.println(wolf.getWeight());
+        System.out.println(wolf.getAge());
+        System.out.println(wolf.getColor());
 
         System.out.println();
 
