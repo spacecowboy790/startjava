@@ -7,20 +7,16 @@ public class CalculatorTest {
 
         do {
             // запускаем калькулятор
-            runCalculator();
+            System.out.println("Результат: " + enterMathExpression());
 
             // спрашиваем пользователя о продолжении
-            answerOfUser = getAnswer();
-
-            // выводим сообщение с предложением до тех пор, пока не появится yes или no
-            while (!answerOfUser.equals("yes") && !answerOfUser.equals("no")) {
-                answerOfUser = getAnswer();
-            }
+            System.out.println("Хотите продолжить вычисления? [yes/no]: ");
+            answerOfUser = askAboutContinue();
         } while (!answerOfUser.equals("no"));
     }
 
     // функция для запуска калькулятора
-    public static void runCalculator() {
+    public static int enterMathExpression() {
         Calculator calculator = new Calculator();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите первое число: ");
@@ -29,13 +25,17 @@ public class CalculatorTest {
         calculator.setOperation(scanner.next().charAt(0));
         System.out.println("Введите второе число: ");
         calculator.setNum2(scanner.nextInt());
-        System.out.println("Результат: " + calculator.makeCalculation());
+        return calculator.makeCalculation();
     }
 
-    // функция для ответа пользователя
-    public static String getAnswer() {
+    // функция для вопроса пользователю
+    public static String askAboutContinue() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Хотите продолжить вычисления? [yes/no]: ");
-        return scanner.nextLine();
+        String answerOfUser = scanner.nextLine();
+        while (!answerOfUser.equals("yes") && !answerOfUser.equals("no")) {
+            System.out.println("Хотите продолжить вычисления? [yes/no]: ");
+            answerOfUser = scanner.nextLine();
+        }
+        return answerOfUser;
     }
 }
