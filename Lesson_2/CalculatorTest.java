@@ -6,21 +6,21 @@ public class CalculatorTest {
         String answerOfUser;
 
         do {
-            // выполняем вычисление
-            computation();
-            
+            // запускаем калькулятор
+            runCalculator();
+
             // спрашиваем пользователя о продолжении
-            answerOfUser = answer();
+            answerOfUser = getAnswer();
 
             // выводим сообщение с предложением до тех пор, пока не появится yes или no
             while (!answerOfUser.equals("yes") && !answerOfUser.equals("no")) {
-                answerOfUser = answer();
+                answerOfUser = getAnswer();
             }
         } while (!answerOfUser.equals("no"));
     }
 
-    // функция для вычислений
-    public static void computation() {
+    // функция для запуска калькулятора
+    public static void runCalculator() {
         Calculator calculator = new Calculator();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите первое число: ");
@@ -29,11 +29,11 @@ public class CalculatorTest {
         calculator.setOperation(scanner.next().charAt(0));
         System.out.println("Введите второе число: ");
         calculator.setNum2(scanner.nextInt());
-        System.out.println("Результат: " + calculator.computation());
+        System.out.println("Результат: " + calculator.makeCalculation());
     }
 
     // функция для ответа пользователя
-    public static String answer() {
+    public static String getAnswer() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Хотите продолжить вычисления? [yes/no]: ");
         return scanner.nextLine();
