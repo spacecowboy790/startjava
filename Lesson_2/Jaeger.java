@@ -5,36 +5,15 @@ public class Jaeger {
     private String status;
     private int kaijuKilled;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public Jaeger(String name, String mark, String status, int kaijuKilled) {
         this.name = name;
-    }
-
-    public String getMark() {
-        return mark;
-    }
-
-    public void setMark(String mark) {
         this.mark = mark;
-    }
-
-    public String getStatus() {
-        return status;
+        this.status = status;
+        this.kaijuKilled = kaijuKilled;
     }
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public int getKaijuKilled() {
-        return kaijuKilled;
-    }
-
-    public void setKaijuKilled(int kaijuKilled) {
-        this.kaijuKilled = kaijuKilled;
     }
 
     public void activeArmor() {
@@ -50,7 +29,8 @@ public class Jaeger {
         kaijuKilled++;
     }
 
-    public String getInfo() {
-        return "Полная информация: Имя: " + getName() + "; модель: " + getMark() + "; текущий статус: " + getStatus() + "; кайдзю уничтожено: " + getKaijuKilled();
+    @Override
+    public String toString() {
+        return "Полная информация: Имя: " + name + "; модель: " + mark + "; текущий статус: " + status + "; кайдзю уничтожено: " + kaijuKilled;
     }
 }
