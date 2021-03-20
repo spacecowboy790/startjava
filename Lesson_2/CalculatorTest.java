@@ -2,12 +2,11 @@ import java.util.Scanner;
 
 public class CalculatorTest {
     public static void main(String[] args) {
-        String answerOfUser = "";
         do {
             Calculator calculator = new Calculator();
             enterMathExpression(calculator);
             System.out.println("Результат: " + calculator.calculate());
-        } while (isExist(answerOfUser));
+        } while (isExistAnswerFromUser());
     }
 
     public static void enterMathExpression(Calculator calculator) {
@@ -20,11 +19,11 @@ public class CalculatorTest {
         calculator.setNum2(scanner.nextInt());
     }
 
-    public static boolean isExist(String answerOfUser) {
-        Scanner scanner = new Scanner(System.in);
+    public static boolean isExistAnswerFromUser() {
         do {
             System.out.println("Хотите продолжить вычисления? [yes/no]:");
-            answerOfUser = scanner.nextLine();
+            Scanner scanner = new Scanner(System.in);
+            String answerOfUser = scanner.nextLine();
             if (answerOfUser.equals("yes")) {
                 return true;
             } else if (answerOfUser.equals("no")) {
