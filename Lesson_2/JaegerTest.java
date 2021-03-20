@@ -1,7 +1,7 @@
 public class JaegerTest {
     public static void main(String[] args) {
         Jaeger jaeger1 = new Jaeger("Brawler Yukon", "Mark-1", "Destroyed", 10);
-        System.out.println(jaeger1.toString());
+        System.out.println(jaeger1);
 
         System.out.println();
 
@@ -10,7 +10,7 @@ public class JaegerTest {
         jaeger2.fly();
         jaeger2.activeArmor();
         jaeger2.killKaiju();
-        System.out.println(jaeger2.toString());
+        System.out.println(jaeger2);
 
         System.out.println();
 
@@ -19,6 +19,6 @@ public class JaegerTest {
         jaeger3.fly();
         jaeger3.activeArmor();
         jaeger3.setStatus("Destroyed");
-        System.out.println(jaeger3.toString());
+        System.out.println(jaeger3);
     }
 }

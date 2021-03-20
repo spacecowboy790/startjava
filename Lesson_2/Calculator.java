@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Calculator {
 
     private int num1;
@@ -18,60 +16,27 @@ public class Calculator {
         this.num2 = num2;
     }
 
-    public void calculate() {
-        enterMathExpression();
+    public int calculate() {
         switch (operation) {
             case '+':
-                System.out.println(num1 + num2);
-                break;
+                return num1 + num2;
             case '-':
-                System.out.println(num1 - num2);
-                break;
+                return num1 - num2;
             case '*':
-                System.out.println(num1 * num2);
-                break;
+                return num1 * num2;
             case '/':
-                System.out.println(num1 / num2);
-                break;
+                return num1 / num2;
             case '^':
                 int res = 1;
                 for (int i = 1; i <= num2; i++) {
                     res *= num1;
                 }
-                System.out.println(res);
-                break;
+                return res;
             case '%':
-                System.out.println(num1 % num2);
-                break;
+                return num1 % num2;
             default:
                 System.out.println("Неверная операция");
-                break;
         }
-        askAboutContinue();
-    }
-
-    public void enterMathExpression() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите первое число: ");
-        setNum1(scanner.nextInt());
-        System.out.println("Введите знак математической операции: ");
-        setOperation(scanner.next().charAt(0));
-        System.out.println("Введите второе число: ");
-        setNum2(scanner.nextInt());
-    }
-
-    public void askAboutContinue() {
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-            System.out.println("Хотите продолжить вычисления? [yes/no]: ");
-            String answerOfUser = scanner.nextLine();
-            if (answerOfUser.equals("yes")) {
-                calculate();
-                break;
-            }
-            if (answerOfUser.equals("no")) {
-                break;
-            }
-        }
+        return 0;
     }
 }
