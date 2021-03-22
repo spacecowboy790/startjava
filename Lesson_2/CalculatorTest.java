@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class CalculatorTest {
     public static void main(String[] args) {
         do {

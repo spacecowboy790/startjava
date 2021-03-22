@@ -2,22 +2,26 @@ import java.util.Scanner;
 
 public class GuessNumberTest {
     public static void main(String[] args) {
-        GuessNumber guessNumber = enterPlayersNames();
+        GuessNumber guessNumber = createGame();
         do {
-            guessNumber.playGame();
-        } while (isExist());
+            guessNumber.start();
+        } while (isNext());
     }
 
-    public static GuessNumber enterPlayersNames() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите имя первого игрока: ");
-        Player player1 = new Player(scanner.nextLine());
-        System.out.println("Введите имя второго игрока: ");
-        Player player2 = new Player(scanner.nextLine());
+    public static GuessNumber createGame() {
+        System.out.println("Введите имя первого игрока:");
+        Player player1 = createPlayer();
+        System.out.println("Введите имя второго игрока:");
+        Player player2 = createPlayer();
         return new GuessNumber(player1, player2);
     }
 
-    public static boolean isExist() {
+    public static Player createPlayer() {
+        Scanner scanner = new Scanner(System.in);
+        return new Player(scanner.nextLine());
+    }
+
+    public static boolean isNext() {
         Scanner scanner = new Scanner(System.in);
         String answerOfPlayers = "";
         do {
