@@ -19,11 +19,11 @@ public class GuessNumberTest {
 
     public static boolean isExist() {
         Scanner scanner = new Scanner(System.in);
-        String answerOfUser = "";
+        String answerOfUsers = "";
         do {
             System.out.println("Хотите продолжить игру? [yes/no]");
-            answerOfUser = scanner.nextLine();
-        } while (!answerOfUser.equals("yes") && !answerOfUser.equals("no"));
-        return answerOfUser.equals("yes");
+            answerOfUsers = scanner.nextLine();
+        } while (!answerOfUsers.equals("yes") && !answerOfUsers.equals("no"));
+        return answerOfUsers.equals("yes");
     }
 }
