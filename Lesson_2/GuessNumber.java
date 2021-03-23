@@ -17,11 +17,12 @@ public class GuessNumber {
         //System.out.println("Число, которое загадал компьютер: " + targetNumber);
         do {
             enterNumber(player1);
-            if (checkForFinish(player1, player1.getNumber(), targetNumber)) {
+            if (checkForFinish(player1, targetNumber)) {
                 break;
-            }       
+            }
+
             enterNumber(player2);
-            if (checkForFinish(player2, player2.getNumber(), targetNumber)) {
+            if (checkForFinish(player2, targetNumber)) {
                 break;
             }
         } while (true);
@@ -33,11 +34,11 @@ public class GuessNumber {
         player.setNumber(scanner.nextInt());
     }
 
-    private boolean checkForFinish(Player player, int playerNumber, int targetNumber) {
-        if (playerNumber > targetNumber) {
+    private boolean checkForFinish(Player player, int targetNumber) {
+        if (player.getNumber() > targetNumber) {
             System.out.println("Число меньше того, что назвал " + player.getName());
             return false;
-        } else if (playerNumber < targetNumber) {
+        } else if (player.getNumber() < targetNumber) {
             System.out.println("Число больше того, что назвал " + player.getName());
             return false;
         } else {
