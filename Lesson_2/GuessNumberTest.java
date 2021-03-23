@@ -1,6 +1,10 @@
 import java.util.Scanner;
 
 public class GuessNumberTest {
+
+    private static final Scanner SCANNER = new Scanner(System.in);
+    private static int numberOfGamer = 1;
+
     public static void main(String[] args) {
         GuessNumber guessNumber = createGame();
         do {
@@ -8,25 +12,22 @@ public class GuessNumberTest {
         } while (isNext());
     }
 
-    public static GuessNumber createGame() {
-        System.out.println("Введите имя первого игрока:");
+    private static GuessNumber createGame() {
         Player player1 = createPlayer();
-        System.out.println("Введите имя второго игрока:");
         Player player2 = createPlayer();
         return new GuessNumber(player1, player2);
     }
 
-    public static Player createPlayer() {
-        Scanner scanner = new Scanner(System.in);
-        return new Player(scanner.nextLine());
+    private static Player createPlayer() {
+        System.out.println("Введите имя " + (numberOfGamer++) + "-го игрока:");
+        return new Player(SCANNER.nextLine());
     }
 
-    public static boolean isNext() {
-        Scanner scanner = new Scanner(System.in);
+    private static boolean isNext() {
         String answerOfPlayers = "";
         do {
             System.out.println("Хотите продолжить игру? [yes/no]");
-            answerOfPlayers = scanner.nextLine();
+            answerOfPlayers = SCANNER.nextLine();
         } while (!answerOfPlayers.equals("yes") && !answerOfPlayers.equals("no"));
         return answerOfPlayers.equals("yes");
     }

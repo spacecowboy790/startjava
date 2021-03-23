@@ -19,19 +19,20 @@ public class GuessNumber {
         do {
             System.out.println(player1.getName() + ", введите число:");
             player1.setNumber(scanner.nextInt());
-            System.out.println(player2.getName() + ", введите число:");
-            player2.setNumber(scanner.nextInt());
-
             if (player1.getNumber() == targetNumber) {
                 System.out.println(player1.getName() + " победил");
                 break;
-            } else if (player2.getNumber() == targetNumber) {
+            } else if (player1.getNumber() > targetNumber) {
+                System.out.println("Число меньше того, что загадал " + player1.getName());
+            }
+
+            System.out.println(player2.getName() + ", введите число:");
+            player2.setNumber(scanner.nextInt());
+            if (player2.getNumber() == targetNumber) {
                 System.out.println(player2.getName() + " победил");
                 break;
-            } else if (player1.getNumber() > targetNumber) {
-                System.out.println("Вы оба не угадали: число меньше того, что загадал " + player1.getName() + ", попробуйте еще раз");
             } else if (player2.getNumber() < targetNumber) {
-                System.out.println("Вы оба не угадали: число больше того, что загадал " + player2.getName() + ", попробуйте еще раз");
+                System.out.println("Число больше того, что загадал " + player2.getName());
             }
         } while (true);
     }
