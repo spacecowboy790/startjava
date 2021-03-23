@@ -14,12 +14,12 @@ public class GuessNumber {
     public void start() {
         Random random = new Random();
         int targetNumber = random.nextInt(100) + 1;
-        System.out.println("Число, которое загадал компьютер: " + targetNumber);
+        //System.out.println("Число, которое загадал компьютер: " + targetNumber);
         do {
             enterNumber(player1);
             if (checkForFinish(player1, player1.getNumber(), targetNumber)) {
                 break;
-            }
+            }       
             enterNumber(player2);
             if (checkForFinish(player2, player2.getNumber(), targetNumber)) {
                 break;
