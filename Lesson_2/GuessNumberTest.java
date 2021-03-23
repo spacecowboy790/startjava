@@ -2,8 +2,7 @@ import java.util.Scanner;
 
 public class GuessNumberTest {
 
-    private static final Scanner SCANNER = new Scanner(System.in);
-    private static int numberOfGamer = 1;
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         GuessNumber guessNumber = createGame();
@@ -13,21 +12,21 @@ public class GuessNumberTest {
     }
 
     private static GuessNumber createGame() {
-        Player player1 = createPlayer();
-        Player player2 = createPlayer();
+        Player player1 = createPlayer(1);
+        Player player2 = createPlayer(2);
         return new GuessNumber(player1, player2);
     }
 
-    private static Player createPlayer() {
-        System.out.println("Введите имя " + (numberOfGamer++) + "-го игрока:");
-        return new Player(SCANNER.nextLine());
+    private static Player createPlayer(int numberOfGamer) {
+        System.out.println("Введите имя " + numberOfGamer  + "-го игрока:");
+        return new Player(scanner.nextLine());
     }
 
     private static boolean isNext() {
         String answerOfPlayers = "";
         do {
             System.out.println("Хотите продолжить игру? [yes/no]");
-            answerOfPlayers = SCANNER.nextLine();
+            answerOfPlayers = scanner.nextLine();
         } while (!answerOfPlayers.equals("yes") && !answerOfPlayers.equals("no"));
         return answerOfPlayers.equals("yes");
     }
