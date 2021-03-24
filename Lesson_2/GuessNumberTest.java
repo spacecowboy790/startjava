@@ -17,8 +17,8 @@ public class GuessNumberTest {
         return new GuessNumber(player1, player2);
     }
 
-    private static Player createPlayer(int numberOfGamer) {
-        System.out.println("Введите имя " + numberOfGamer  + "-го игрока:");
+    private static Player createPlayer(int numberOfPlayer) {
+        System.out.println("Введите имя " + numberOfPlayer  + "-го игрока:");
         return new Player(scanner.nextLine());
     }
 
