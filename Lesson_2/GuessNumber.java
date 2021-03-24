@@ -38,13 +38,8 @@ public class GuessNumber {
             System.out.println(player.getName() + " победил");
             return true;
         }
-        return player.getNumber() > targetNumber ?
-                printMessage("меньше", player.getName()) :
-                printMessage("больше", player.getName());
-    }
-
-    private boolean printMessage(String condition, String playerName) {
-        System.out.println("Число " + condition + " того, что назвал " + playerName);
+        String result = player.getNumber() > targetNumber ? "меньше" : "больше";
+        System.out.println("Число " + result + " того, что назвал " + player.getName());
         return false;
     }
 }
